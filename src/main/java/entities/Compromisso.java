@@ -4,6 +4,7 @@ import enums.Prioridade;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,16 +19,16 @@ public class Compromisso {
 
 
     public Compromisso() {
+        this.paticipantes = new ArrayList<>();
     }
 
-    public Compromisso(UUID id, String titulo, LocalDate data, LocalTime hora, Prioridade prioridade,
-                       List<Paticipante> paticipantes) {
+    public Compromisso(UUID id, String titulo, LocalDate data, LocalTime hora, Prioridade prioridade){
+        this();
         this.id = id;
         this.titulo = titulo;
         this.data = data;
         this.hora = hora;
         this.prioridade = prioridade;
-        this.paticipantes = paticipantes;
     }
 
     public UUID getId() {
@@ -72,5 +73,9 @@ public class Compromisso {
 
     public List<Paticipante> getPaticipantes() {
         return paticipantes;
+    }
+
+    public void adicionarPaticipante(Paticipante paticipante){
+        this.paticipantes.add(paticipante);
     }
 }
